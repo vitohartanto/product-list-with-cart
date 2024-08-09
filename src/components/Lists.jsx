@@ -1,12 +1,23 @@
-import WaffleImage from '../assets/images/image-waffle-mobile.jpg';
+import WaffleImageMobile from '../assets/images/image-waffle-mobile.jpg';
+import WaffleImageTablet from '../assets/images/image-waffle-tablet.jpg';
+import WaffleImageDesktop from '../assets/images/image-waffle-desktop.jpg';
 
 const Lists = () => {
   return (
     <div className="px-4">
-      <div className="flex-col grid">
+      <div className="grid flex-col">
         <div className="relative">
-          <img className="rounded-xl" src={WaffleImage} alt="Waffle" />
-          <div className="flex py-4 px-8 bg-white rounded-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <picture>
+            {/* Gambar untuk desktop */}
+            <source media="(min-width: 1024px)" srcSet={WaffleImageDesktop} />
+
+            {/* Gambar untuk tablet */}
+            <source media="(min-width: 768px)" srcSet={WaffleImageTablet} />
+
+            {/* Gambar untuk mobile */}
+            <img src={WaffleImageMobile} alt="Waffle" />
+          </picture>
+          <div className="absolute flex px-8 py-4 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg top-1/2 left-1/2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="21"
