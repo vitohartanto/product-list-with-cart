@@ -10,7 +10,7 @@ export const cartSlice = createSlice({
   reducers: {
     addItems: (state, action) => {
       const { items } = action.payload;
-      state.items = items.map((item) => ({ id: nanoid(), amount: 0, ...item }));
+      state.items = items.map((item) => ({ id: nanoid(), count: 0, ...item }));
     },
     increment: (state, action) => {
       const id = action.payload;
