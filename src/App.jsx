@@ -4,10 +4,10 @@ import './App.css';
 
 function App() {
   return (
-    <div className="bg-[#fcf8f5] h-screen pt-4">
-      <h1 className="text-[#270f08] text-4xl font-bold ml-4 mb-4">Desserts</h1>
-      <Lists></Lists>
-      <Cart></Cart>
+    <div className="bg-[#fcf8f5] h-screen pt-6">
+      <h1 className="text-[#270f08] text-4xl font-bold ml-6 mb-4">Desserts</h1>
+      <Lists />
+      <Cart />
     </div>
   );
 }
