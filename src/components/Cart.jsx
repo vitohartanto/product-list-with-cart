@@ -29,19 +29,37 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div className="mx-6 bg-white rounded-lg ">
       {filterCount && totalCount > 0 ? (
         <div>
           <h2>Your Cart ({totalCount})</h2>
           {filterCount.map((item) => (
-            <div key={item.id}></div>
+            <div key={item.id}>
+              <div></div>
+              <button>X</button>
+            </div>
           ))}
+
+          <div>
+            <h1>Order Total</h1>
+          </div>
         </div>
       ) : (
-        <div>
-          <h2>Your Cart (0)</h2>
-          <img src={emptyCart} alt="empty-cart" />
-          <p>Your added items will appear here</p>
+        <div className="">
+          <div className="">
+            <h2 className="text-center text-2xl text-[#c83b0e] font-bold ml-4 pt-4">
+              Your Cart (0)
+            </h2>
+            <img
+              src={emptyCart}
+              alt="empty-cart"
+              className="mx-auto mt-6 mb-6"
+            />
+            <p className="pb-6 text-center">
+              Your added items will appear here
+            </p>
+          </div>
+          <div className="h-6"></div>
         </div>
       )}
     </div>
