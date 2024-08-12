@@ -1,6 +1,7 @@
 import { addItems } from '../slices/reducers/cartReducer';
 import { useDispatch } from 'react-redux';
 import data from '../data.json';
+import { FaRegTimesCircle } from 'react-icons/fa';
 import orderConfirmed from '../assets/images/icon-order-confirmed.svg';
 
 const ConfirmOrder = ({ filterItem, total, setPopUp }) => {
@@ -9,9 +10,20 @@ const ConfirmOrder = ({ filterItem, total, setPopUp }) => {
     dispatch(addItems({ items: data }));
     setPopUp(false);
   };
+  const cancelHandler = () => {
+    setPopUp(false);
+  };
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="flex-col px-4 bg-white rounded-lg w-96">
+      <div className="relative flex-col px-4 bg-white rounded-lg w-96">
+        <button
+          onClick={cancelHandler}
+          className="hover:opacity-80 absolute text-4xl text-[#c83b0e] top-4 left-4"
+        >
+          <span>
+            <FaRegTimesCircle />
+          </span>
+        </button>
         <div className="my-8 text-center">
           <img
             src={orderConfirmed}
@@ -52,7 +64,7 @@ const ConfirmOrder = ({ filterItem, total, setPopUp }) => {
 
         <button
           onClick={startNewOrderHandler}
-          className="mt-8 mb-8  w-full py-4 text-white text-center bg-[#c83b0e] rounded-full "
+          className="hover:opacity-80 mt-8 mb-8  w-full py-4 text-white text-center bg-[#c83b0e] rounded-full "
         >
           Start New Order
         </button>

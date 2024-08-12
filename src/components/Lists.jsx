@@ -15,13 +15,14 @@ const Lists = () => {
   return (
     <div className="px-6">
       <div className="grid grid-cols-1 gap-6">
-        {/* Dalaman */}
         {items?.map((item) => (
           <div key={item.id} className="relative">
             <img
               src={item.image.mobile}
               alt={item.name}
-              className="rounded-lg"
+              className={`rounded-lg ${
+                item.count && 'border-2 border-[#c83b0e]'
+              }`}
             />
 
             <CounterButton id={item.id} />
@@ -34,7 +35,6 @@ const Lists = () => {
             </div>
           </div>
         ))}
-        {/* Akhir Dalam */}
       </div>
     </div>
   );
