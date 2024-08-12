@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { removeCart } from '../slices/reducers/cartReducer';
+import { FaRegTimesCircle } from 'react-icons/fa';
 import emptyCart from '../assets/images/illustration-empty-cart.svg';
+import carbonNeutral from '../assets/images/icon-carbon-neutral.svg';
 
 const Cart = () => {
   const { items } = useSelector((state) => state.cart);
@@ -32,18 +35,49 @@ const Cart = () => {
       {/* {filterCount && totalCount > 0 ? ( */}
       {testing === 1 ? (
         <div>
-          <h2 className="text-center text-2xl text-[#c83b0e] font-bold ml-4 pt-4">
+          <h2 className="text-center text-2xl text-[#c83b0e] mb-4 font-bold ml-4 pt-4">
             Your Cart ({totalCount})
           </h2>
           {filterCount.map((item) => (
-            <div key={item.id}>
-              <div></div>
-              <button>X</button>
+            <div
+              key={item.id}
+              className="flex justify-between pb-2 mx-8 mb-2 border-b-2"
+            >
+              <div>
+                <h1 className="mb-1 font-medium">{item.name}</h1>
+                <div className="flex">
+                  <span className="text-[#c83b0e] mr-4">{item.count}x</span>
+                  <span className="text-[#837874] mr-4 font-light">
+                    @ ${item.price.toFixed(2)}
+                  </span>
+                  <span className="text-[#270f08] font-normal">
+                    ${(item.count * item.price).toFixed(2)}
+                  </span>
+                </div>
+              </div>
+              <button onClick={removeCartHandler}>
+                <span className="text-[#837874]">
+                  <FaRegTimesCircle />
+                </span>
+              </button>
             </div>
           ))}
 
-          <div>
-            <h1>Order Total</h1>
+          <div className="mx-8">
+            <div className="flex items-center justify-between my-3">
+              <h1>Order Total</h1>
+              <span className="text-2xl font-bold">${allPriceTotal}</span>
+            </div>
+            <div className="bg-[#fcf8f5] flex rounded-lg justify-around items-center p-4 ">
+              <img src={carbonNeutral} alt="carbon neutral icon" className="" />
+              <p className="text-sm ">
+                This is <span className="font-medium">carbon-neutral</span>{' '}
+                delivery
+              </p>
+            </div>
+            <button className="bg-[#c83b0e] text-center w-full px-16 py-4 rounded-full text-lg font-medium text-white my-5">
+              Confirm Order
+            </button>
           </div>
         </div>
       ) : (
