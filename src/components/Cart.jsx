@@ -32,7 +32,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="mx-6 mt-6 bg-white border rounded-lg">
+    <div className="mx-6 mt-6 bg-white border rounded-lg lg:w-96 lg:mt-0 lg:self-start">
       {filterCount && totalCount > 0 ? (
         <div>
           <h2 className="text-center text-2xl text-[#c83b0e] mb-4 font-bold ml-4 pt-4">
@@ -70,8 +70,12 @@ const Cart = () => {
                 ${allPriceTotal.toFixed(2)}
               </span>
             </div>
-            <div className="bg-[#fcf8f5] flex rounded-lg justify-around items-center p-4 ">
-              <img src={carbonNeutral} alt="carbon neutral icon" className="" />
+            <div className="bg-[#fcf8f5] flex rounded-lg justify-center items-center p-4 ">
+              <img
+                src={carbonNeutral}
+                alt="carbon neutral icon"
+                className="mr-2"
+              />
               <p className="text-sm ">
                 This is <span className="font-medium">carbon-neutral</span>{' '}
                 delivery

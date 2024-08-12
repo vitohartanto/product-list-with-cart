@@ -13,17 +13,21 @@ const Lists = () => {
   }, [dispatch]);
 
   return (
-    <div className="px-6">
-      <div className="grid grid-cols-1 gap-6">
+    <div className="px-6 lg:w-3/5">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items?.map((item) => (
           <div key={item.id} className="relative">
-            <img
-              src={item.image.mobile}
-              alt={item.name}
-              className={`rounded-lg ${
-                item.count && 'border-2 border-[#c83b0e]'
-              }`}
-            />
+            <picture>
+              <source media="(min-width:1024px)" srcSet={item.image.desktop} />
+              <source media="(min-width:640px)" srcSet={item.image.tablet} />
+              <img
+                src={item.image.mobile}
+                alt={item.name}
+                className={`rounded-lg ${
+                  item.count && 'border-2 border-[#c83b0e]'
+                }`}
+              />
+            </picture>
 
             <CounterButton id={item.id} />
             <div className="mt-8">
