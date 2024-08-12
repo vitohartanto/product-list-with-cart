@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeCart } from '../slices/reducers/cartReducer';
 import { FaRegTimesCircle } from 'react-icons/fa';
+import ConfirmOrder from './ConfirmOrder';
 import emptyCart from '../assets/images/illustration-empty-cart.svg';
 import carbonNeutral from '../assets/images/icon-carbon-neutral.svg';
 
 const Cart = () => {
   const { items } = useSelector((state) => state.cart);
   const [popUp, setPopUp] = useState(false);
-  const testing = 1;
+
   const dispatch = useDispatch();
   const filterCount = items.filter((item) => item.count > 0);
   const allPriceTotal = filterCount.reduce(
@@ -32,8 +33,7 @@ const Cart = () => {
 
   return (
     <div className="mx-6 mt-6 bg-white border rounded-lg">
-      {/* {filterCount && totalCount > 0 ? ( */}
-      {testing === 1 ? (
+      {filterCount && totalCount > 0 ? (
         <div>
           <h2 className="text-center text-2xl text-[#c83b0e] mb-4 font-bold ml-4 pt-4">
             Your Cart ({totalCount})
@@ -55,7 +55,7 @@ const Cart = () => {
                   </span>
                 </div>
               </div>
-              <button onClick={removeCartHandler}>
+              <button onClick={() => removeCartHandler(item.id)}>
                 <span className="text-[#837874]">
                   <FaRegTimesCircle />
                 </span>
@@ -75,7 +75,10 @@ const Cart = () => {
                 delivery
               </p>
             </div>
-            <button className="bg-[#c83b0e] text-center w-full px-16 py-4 rounded-full text-lg font-medium text-white my-5">
+            <button
+              onClick={confirmOrderHandler}
+              className="bg-[#c83b0e] text-center w-full px-16 py-4 rounded-full text-lg font-medium text-white my-5"
+            >
               Confirm Order
             </button>
           </div>
@@ -97,6 +100,7 @@ const Cart = () => {
           </div>
         </div>
       )}
+      {popUp ? <ConfirmOrder /> : <div></div>}
     </div>
   );
 };
