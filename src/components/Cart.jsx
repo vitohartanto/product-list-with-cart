@@ -29,14 +29,14 @@ const Cart = () => {
   };
 
   return (
-    <div className="mx-6 bg-white rounded-lg ">
+    <div className="mx-6 mt-6 bg-white border rounded-lg">
       {filterCount && totalCount > 0 ? (
         <div>
           <h2>Your Cart ({totalCount})</h2>
           {filterCount.map((item) => (
             <div key={item.id}>
               <div></div>
-              <button>X</button>
+              <button>✖️</button>
             </div>
           ))}
 
@@ -59,7 +59,6 @@ const Cart = () => {
               Your added items will appear here
             </p>
           </div>
-          <div className="h-6"></div>
         </div>
       )}
     </div>
