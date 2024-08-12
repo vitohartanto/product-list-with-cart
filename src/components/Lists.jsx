@@ -24,7 +24,7 @@ const Lists = () => {
               className="rounded-lg"
             />
 
-            <CounterButton />
+            <CounterButton id={item.id} />
             <div className="mt-8">
               <p className="text-[#726666] text-sm">{item.category}</p>
               <p className="text-[#270f08] font-semibold">{item.name}</p>

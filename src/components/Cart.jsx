@@ -1,5 +1,3 @@
-import { current } from '@reduxjs/toolkit';
-import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import emptyCart from '../assets/images/illustration-empty-cart.svg';
@@ -7,6 +5,7 @@ import emptyCart from '../assets/images/illustration-empty-cart.svg';
 const Cart = () => {
   const { items } = useSelector((state) => state.cart);
   const [popUp, setPopUp] = useState(false);
+  const testing = 1;
   const dispatch = useDispatch();
   const filterCount = items.filter((item) => item.count > 0);
   const allPriceTotal = filterCount.reduce(
@@ -30,13 +29,16 @@ const Cart = () => {
 
   return (
     <div className="mx-6 mt-6 bg-white border rounded-lg">
-      {filterCount && totalCount > 0 ? (
+      {/* {filterCount && totalCount > 0 ? ( */}
+      {testing === 1 ? (
         <div>
-          <h2>Your Cart ({totalCount})</h2>
+          <h2 className="text-center text-2xl text-[#c83b0e] font-bold ml-4 pt-4">
+            Your Cart ({totalCount})
+          </h2>
           {filterCount.map((item) => (
             <div key={item.id}>
               <div></div>
-              <button>✖️</button>
+              <button>X</button>
             </div>
           ))}
 
