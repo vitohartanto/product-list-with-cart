@@ -66,7 +66,9 @@ const Cart = () => {
           <div className="mx-8">
             <div className="flex items-center justify-between my-3">
               <h1>Order Total</h1>
-              <span className="text-2xl font-bold">${allPriceTotal}</span>
+              <span className="text-2xl font-bold">
+                ${allPriceTotal.toFixed(2)}
+              </span>
             </div>
             <div className="bg-[#fcf8f5] flex rounded-lg justify-around items-center p-4 ">
               <img src={carbonNeutral} alt="carbon neutral icon" className="" />
@@ -100,7 +102,15 @@ const Cart = () => {
           </div>
         </div>
       )}
-      {popUp ? <ConfirmOrder /> : <div></div>}
+      {popUp ? (
+        <ConfirmOrder
+          filterItem={filterCount}
+          total={allPriceTotal}
+          setPopUp={setPopUp}
+        />
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
