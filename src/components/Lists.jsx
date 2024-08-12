@@ -1,4 +1,3 @@
-import AddToCartIcon from '../assets/images/icon-add-to-cart.svg';
 import data from '../data.json';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
