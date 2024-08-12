@@ -5,13 +5,13 @@ import orderConfirmed from '../assets/images/icon-order-confirmed.svg';
 
 const ConfirmOrder = ({ filterItem, total, setPopUp }) => {
   const dispatch = useDispatch();
-  const handleClick = () => {
+  const startNewOrderHandler = () => {
     dispatch(addItems({ items: data }));
     setPopUp(false);
   };
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg w-96">
+      <div className="flex-col px-4 bg-white rounded-lg w-96">
         <div className="my-8 text-center">
           <img
             src={orderConfirmed}
@@ -21,7 +21,7 @@ const ConfirmOrder = ({ filterItem, total, setPopUp }) => {
           <h2 className="text-2xl font-bold">Order Confirmed</h2>
           <p>We hope you enjoy your food!</p>
         </div>
-        <div className="bg-[#fcf8f5] rounded-lg py-6 mx-4 ">
+        <div className="bg-[#fcf8f5] rounded-lg py-6 mx-4 h-48 overflow-y-auto">
           {filterItem.map((item) => (
             <div
               key={item.id}
@@ -44,13 +44,18 @@ const ConfirmOrder = ({ filterItem, total, setPopUp }) => {
               </h1>
             </div>
           ))}
+          <div className="flex items-center justify-between mx-8">
+            <h1 className="">Order Total</h1>
+            <span className="text-2xl font-bold">${total.toFixed(2)}</span>
+          </div>
         </div>
 
-        <div>
-          <h1>Order Total</h1>
-          <p>$Dolar</p>
-        </div>
-        <button className="w-full bg-[#c83b0e]">Start New Order</button>
+        <button
+          onClick={startNewOrderHandler}
+          className="mt-8 mb-8  w-full py-4 text-white text-center bg-[#c83b0e] rounded-full "
+        >
+          Start New Order
+        </button>
       </div>
     </div>
   );
