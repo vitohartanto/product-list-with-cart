@@ -12,10 +12,10 @@
     },
     {
         "image": {
-            "thumbnail": "/src/assets/images/image-creme-brulee-thumbnail.jpg",
-            "mobile": "/src/assets/images/image-creme-brulee-mobile.jpg",
-            "tablet": "/src/assets/images/image-creme-brulee-tablet.jpg",
-            "desktop": "/src/assets/images/image-creme-brulee-desktop.jpg"
+            "thumbnail": "/images/image-creme-brulee-thumbnail.jpg",
+            "mobile": "/images/image-creme-brulee-mobile.jpg",
+            "tablet": "/images/image-creme-brulee-tablet.jpg",
+            "desktop": "/images/image-creme-brulee-desktop.jpg"
         },
         "name": "Vanilla Bean Crème Brûlée",
         "category": "Crème Brûlée",
